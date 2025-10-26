@@ -1,0 +1,21 @@
+{
+  "name": "Sync Vendor",
+  "description": "Experimental provider package",
+  "website": "https://magnify.pages.dev",
+  "tutorial": "https://magnify.pages.dev",
+  "support": "https://magnify.pages.dev",
+  "packages": [
+    {
+      "manifest": "https://raw.githubusercontent.com/kotwal-aizaz-dev/sync-vendor/refs/heads/main/manifest.json",
+      "description": "Experimental provider package \nhttps://paypal.me/Jansen122"
+    }
+  ],
+  "cacheServers": [
+    "cache.bouncy.cc"
+  ],
+  "defaults": {
+    "packages": [
+      "https://magnify.pages.dev/no-default-package"
+    ]
+  }
+}
