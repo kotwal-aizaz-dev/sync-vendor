@@ -1,81 +1,93 @@
 {
-  "zilean-dmm": {
-    "name": "DMM",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/dmm",
-    "response_type": "json",
-    "movie": {
-      "query": "/?imdbid={query}",
-      "keywords": "{imdbId}"
+    "zilean-dmm": {
+        "name": "DMM",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/dmm",
+        "response_type": "json",
+        "movie": {
+            "query": "/?imdbid={query}",
+            "keywords": "{imdbId}"
+        },
+        "episode": {
+            "query": "/?imdbid={query}&season={season}&episode={episode}",
+            "keywords": "{showImdbId}"
+        },
+        "json_format": {
+            "title": "raw_title",
+            "size": "size",
+            "hash": "info_hash"
+        }
     },
-    "episode": {
-      "query": "/?imdbid={query}&season={season}&episode={episode}",
-      "keywords": "{showImdbId}"
+    "animetosho_primary": {
+        "name": "AnimeTosho",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/animetosho",
+        "response_type": "text",
+        "movie": {
+            "query": "/?q={query}&order=size-d&page=1",
+            "keywords": "{title} {year}"
+        },
+        "episode": {
+            "query": "/?q={query}&order=size-d&page=1",
+            "keywords": "{title} {episodeCode}"
+        },
+        "season": {
+            "query": "/?q={query}&order=size-d&page=1",
+            "keywords": [
+                "{title} {seasonCode}",
+                "{title} {season}"
+            ]
+        },
+        "anime": {
+            "query": "/?q={query}&order=size-d&page=1",
+            "keywords": [
+                "{title} {absoluteNumber}",
+                "{title} {episode}"
+            ]
+        },
+        "html_parser": {
+            "row": "doc.querySelectorAll('.home_list_entry')",
+            "title": "row.querySelector('.link a').textContent",
+            "size": "row.querySelector('.size').textContent",
+            "seeds": "row.querySelector('.links').textContent.match(/\\d+/g)[0]",
+            "peers": "row.querySelector('.links').textContent.match(/\\d+/g)[1]",
+            "url": "row.querySelector('.links a:nth-child(4)').getAttribute('href')"
+        }
     },
-    "json_format": {
-      "title": "raw_title",
-      "size": "size",
-      "hash": "info_hash"
+    "nyaa_primary": {
+        "name": "Nyaa",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/nyaa",
+        "response_type": "text",
+        "movie": {
+            "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
+            "keywords": "{title} {year}"
+        },
+        "episode": {
+            "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
+            "keywords": "{title} {episodeCode}"
+        },
+        "season": {
+            "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
+            "keywords": [
+                "{title} {seasonCode}",
+                "{title} {season}"
+            ]
+        },
+        "anime": {
+            "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
+            "keywords": [
+                "{title} {absoluteNumber}",
+                "{title} {episode}"
+            ]
+        },
+        "html_parser": {
+            "row": "doc.querySelectorAll('.torrent-list tbody tr')",
+            "title": "row.querySelector('td:nth-child(2) a:last-child').textContent",
+            "size": "row.querySelector('td:nth-child(4)').textContent",
+            "seeds": "row.querySelector('td:nth-child(6)').textContent",
+            "peers": "row.querySelector('td:nth-child(7)').textContent",
+            "url": "row.querySelector('td:nth-child(3) a:last-child').getAttribute('href')"
+        }
     }
-  },
-  "animetosho_primary": {
-    "name": "AnimeTosho",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/animetosho",
-    "response_type": "text",
-    "movie": {
-      "query": "/?q={query}&order=size-d&page=1",
-      "keywords": "{title} {year}"
-    },
-    "episode": {
-      "query": "/?q={query}&order=size-d&page=1",
-      "keywords": "{title} {episodeCode}"
-    },
-    "season": {
-      "query": "/?q={query}&order=size-d&page=1",
-      "keywords": ["{title} {seasonCode}", "{title} {season}"]
-    },
-    "anime": {
-      "query": "/?q={query}&order=size-d&page=1",
-      "keywords": ["{title} {absoluteNumber}", "{title} {episode}"]
-    },
-    "html_parser": {
-      "row": "doc.querySelectorAll('.home_list_entry')",
-      "title": "row.querySelector('.link a').textContent",
-      "size": "row.querySelector('.size').textContent",
-      "seeds": "row.querySelector('.links').textContent.match(/\\d+/g)[0]",
-      "peers": "row.querySelector('.links').textContent.match(/\\d+/g)[1]",
-      "url": "row.querySelector('.links a:nth-child(4)').getAttribute('href')"
-    }
-  },
-  "nyaa_primary": {
-    "name": "Nyaa",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/nyaa",
-    "response_type": "text",
-    "movie": {
-      "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
-      "keywords": "{title} {year}"
-    },
-    "episode": {
-      "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
-      "keywords": "{title} {episodeCode}"
-    },
-    "season": {
-      "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
-      "keywords": ["{title} {seasonCode}", "{title} {season}"]
-    },
-    "anime": {
-      "query": "/?f=0&c=1_0&q={query}&s=size&o=desc&p=1",
-      "keywords": ["{title} {absoluteNumber}", "{title} {episode}"]
-    },
-    "html_parser": {
-      "row": "doc.querySelectorAll('.torrent-list tbody tr')",
-      "title": "row.querySelector('td:nth-child(2) a:last-child').textContent",
-      "size": "row.querySelector('td:nth-child(4)').textContent",
-      "seeds": "row.querySelector('td:nth-child(6)').textContent",
-      "peers": "row.querySelector('td:nth-child(7)').textContent",
-      "url": "row.querySelector('td:nth-child(3) a:last-child').getAttribute('href')"
-    }
-  }
 }
