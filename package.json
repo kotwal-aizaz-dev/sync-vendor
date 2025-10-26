@@ -1,26 +1,42 @@
-{ 
-    "comet": {
-    "name": "Comet",
+{"torrentio": {
+    "name": "Torrentio",
     "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/comet",
+    "base_url": "https://magnify.pages.dev/scraper/torrentio",
     "response_type": "json",
     "movie": {
-      "query": "/stream/movie/{query}.json",
+      "query": "/qualityfilter=scr,cam|sort=qualitysize/stream/movie/{query}.json",
       "keywords": "{imdbId}"
     },
     "episode": {
-      "query": "/stream/series/{query}:{season}:{episode}.json",
+      "query": "/sort=qualitysize/stream/series/{query}:{season}:{episode}.json",
       "keywords": "{showImdbId}"
     },
     "anime": {
-      "query": "/stream/anime/{query}:{season}:{episode}.json",
-      "keywords": "{title}"
+      "query": "/sort=qualitysize/stream/anime/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
     },
     "json_format": {
       "results": "streams",
-      "title": "description",
-      "size": "behaviorHints.videoSize",
+      "title": "title",
       "hash": "infoHash"
     }
-  }
-}
+  },
+  "zilean-dmm": {
+    "name": "DMM",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/dmm",
+    "response_type": "json",
+    "movie": {
+      "query": "/?imdbid={query}",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/?imdbid={query}&season={season}&episode={episode}",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "title": "raw_title",
+      "size": "size",
+      "hash": "info_hash"
+    }
+  }}
