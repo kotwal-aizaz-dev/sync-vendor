@@ -1,1 +1,104 @@
-
+{
+  "comet": {
+    "name": "Comet",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/comet",
+    "response_type": "json",
+    "movie": {
+      "query": "/stream/movie/{query}.json",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/stream/series/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "anime": {
+      "query": "/stream/anime/{query}:{season}:{episode}.json",
+      "keywords": "{title}"
+    },
+    "json_format": {
+      "results": "streams",
+      "title": "description",
+      "size": "behaviorHints.videoSize",
+      "hash": "infoHash"
+    }
+  },
+  "torrentio": {
+    "name": "Torrentio",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/torrentio",
+    "response_type": "json",
+    "movie": {
+      "query": "/qualityfilter=scr,cam|sort=qualitysize/stream/movie/{query}.json",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/sort=qualitysize/stream/series/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "anime": {
+      "query": "/sort=qualitysize/stream/anime/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "results": "streams",
+      "title": "title",
+      "hash": "infoHash"
+    }
+  },
+  "zilean-dmm": {
+    "name": "DMM",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/dmm",
+    "response_type": "json",
+    "movie": {
+      "query": "/?imdbid={query}",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/?imdbid={query}&season={season}&episode={episode}",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "title": "raw_title",
+      "size": "size",
+      "hash": "info_hash"
+    }
+  },
+  "animetosho_primary": {
+    "name": "AnimeTosho",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/animetosho",
+    "response_type": "text",
+    "movie": {
+      "query": "/?q={query}&order=size-d&page=1",
+      "keywords": "{title} {year}"
+    },
+    "episode": {
+      "query": "/?q={query}&order=size-d&page=1",
+      "keywords": "{title} {episodeCode}"
+    },
+    "season": {
+      "query": "/?q={query}&order=size-d&page=1",
+      "keywords": [
+        "{title} {seasonCode}",
+        "{title} {season}"
+      ]
+    },
+    "anime": {
+      "query": "/?q={query}&order=size-d&page=1",
+      "keywords": [
+        "{title} {absoluteNumber}",
+        "{title} {episode}"
+      ]
+    },
+    "html_parser": {
+      "row": "doc.querySelectorAll('.home_list_entry')",
+      "title": "row.querySelector('.link a').textContent",
+      "size": "row.querySelector('.size').textContent",
+      "seeds": "row.querySelector('.links').textContent.match(/\\d+/g)[0]",
+      "peers": "row.querySelector('.links').textContent.match(/\\d+/g)[1]",
+      "url": "row.querySelector('.links a:nth-child(4)').getAttribute('href')"
+    }
+  }
+}
