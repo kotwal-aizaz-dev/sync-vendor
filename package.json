@@ -1,25 +1,38 @@
 {
-  "mediafusion": {
-    "name": "MediaFusion",
+  "torrents-csv": {
+    "name": "TorrentsCSV",
     "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/mediafusion",
+    "base_url": "https://magnify.pages.dev/scraper/torrents-csv",
     "response_type": "json",
     "movie": {
-      "query": "/stream/movie/{query}.json",
-      "keywords": "{imdbId}"
+      "query": "/search?q={query}",
+      "keywords": "{title} {year}"
     },
     "episode": {
-      "query": "/stream/series/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
+      "query": "/search?q={query}",
+      "keywords": "{title} {episodeCode}"
+    },
+    "season": {
+      "query": "/search?q={query}",
+      "keywords": [
+        "{title} {seasonCode}",
+        "{title} {season}"
+      ]
     },
     "anime": {
-      "query": "/stream/series/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
+      "query": "/search?q={query}",
+      "keywords": [
+        "{title} {absoluteNumber}",
+        "{title} {episode}"
+      ]
     },
     "json_format": {
-      "results": "streams",
-      "title": "description",
-      "hash": "infoHash"
+      "results": "torrents",
+      "title": "name",
+      "size": "size_bytes",
+      "seeds": "seeders",
+      "peers": "leechers",
+      "hash": "infohash"
     }
   },
   "animetosho_primary": {
