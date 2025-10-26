@@ -1,1 +1,8 @@
 
+{
+  "name": "Sync Package",
+  "id": "Sync Package v1",
+  "url": "https://raw.githubusercontent.com/kotwal-aizaz-dev/sync-vendor/refs/heads/main/package.json",
+  "type": "express",
+  "version": 1
+}
