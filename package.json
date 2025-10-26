@@ -1,27 +1,4 @@
 {
-  "torrentio": {
-    "name": "Torrentio",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/torrentio",
-    "response_type": "json",
-    "movie": {
-      "query": "/qualityfilter=scr,cam|sort=qualitysize/stream/movie/{query}.json",
-      "keywords": "{imdbId}"
-    },
-    "episode": {
-      "query": "/sort=qualitysize/stream/series/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
-    },
-    "anime": {
-      "query": "/sort=qualitysize/stream/anime/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
-    },
-    "json_format": {
-      "results": "streams",
-      "title": "title",
-      "hash": "infoHash"
-    }
-  },
   "zilean-dmm": {
     "name": "DMM",
     "type_": "public server",
