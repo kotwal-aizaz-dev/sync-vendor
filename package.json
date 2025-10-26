@@ -1,27 +1,4 @@
 {
- "torrentio": {
-    "name": "Torrentio",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/torrentio",
-    "response_type": "json",
-    "movie": {
-      "query": "/qualityfilter=scr,cam|sort=qualitysize/stream/movie/{query}.json",
-      "keywords": "{imdbId}"
-    },
-    "episode": {
-      "query": "/sort=qualitysize/stream/series/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
-    },
-    "anime": {
-      "query": "/sort=qualitysize/stream/anime/{query}:{season}:{episode}.json",
-      "keywords": "{showImdbId}"
-    },
-    "json_format": {
-      "results": "streams",
-      "title": "title",
-      "hash": "infoHash"
-    }
-  },
   "zilean-dmm": {
     "name": "DMM",
     "type_": "public server",
@@ -41,76 +18,40 @@
       "hash": "info_hash"
     }
   },
- "knaben_secondary": {
-    "name": "Knaben‌",
+ "torrents-csv": {
+    "name": "TorrentsCSV",
     "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/knaben",
-    "response_type": "text",
+    "base_url": "https://magnify.pages.dev/scraper/torrents-csv",
+    "response_type": "json",
     "movie": {
-      "query": "/{query}/3000000/2/bytes",
+      "query": "/search?q={query}",
       "keywords": "{title} {year}"
     },
     "episode": {
-      "query": "/{query}/2000000/2/bytes",
+      "query": "/search?q={query}",
       "keywords": "{title} {episodeCode}"
     },
     "season": {
-      "query": "/{query}/2000000/2/bytes",
+      "query": "/search?q={query}",
       "keywords": [
         "{title} {seasonCode}",
         "{title} {season}"
       ]
     },
     "anime": {
-      "query": "/{query}/6000000/2/bytes",
+      "query": "/search?q={query}",
       "keywords": [
         "{title} {absoluteNumber}",
         "{title} {episode}"
       ]
     },
-    "html_parser": {
-      "row": "doc.querySelectorAll('.text-nowrap.border-start')",
-      "title": "row.querySelector('.text-wrap.w-100 a').textContent",
-      "size": "row.querySelector('td:nth-child(3)').textContent",
-      "seeds": "row.querySelector('td:nth-child(5)').textContent",
-      "peers": "row.querySelector('td:nth-child(6)').textContent",
-      "url": "row.querySelector('.text-wrap.w-100 a').getAttribute('href')"
-    }
-  },
-  "animetosho_secondary": {
-    "name": "AnimeTosho‌",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/animetosho",
-    "response_type": "text",
-    "movie": {
-      "query": "/?q={query}&order=size-d&page=2",
-      "keywords": "{title} {year}"
-    },
-    "episode": {
-      "query": "/?q={query}&order=size-d&page=2",
-      "keywords": "{title} {episodeCode}"
-    },
-    "season": {
-      "query": "/?q={query}&order=size-d&page=2",
-      "keywords": [
-        "{title} {seasonCode}",
-        "{title} {season}"
-      ]
-    },
-    "anime": {
-      "query": "/?q={query}&order=size-d&page=2",
-      "keywords": [
-        "{title} {absoluteNumber}",
-        "{title} {episode}"
-      ]
-    },
-    "html_parser": {
-      "row": "doc.querySelectorAll('.home_list_entry')",
-      "title": "row.querySelector('.link a').textContent",
-      "size": "row.querySelector('.size').textContent",
-      "seeds": "row.querySelector('.links').textContent.match(/\\d+/g)[0]",
-      "peers": "row.querySelector('.links').textContent.match(/\\d+/g)[1]",
-      "url": "row.querySelector('.links a:nth-child(4)').getAttribute('href')"
+    "json_format": {
+      "results": "torrents",
+      "title": "name",
+      "size": "size_bytes",
+      "seeds": "seeders",
+      "peers": "leechers",
+      "hash": "infohash"
     }
   }
 }
