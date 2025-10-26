@@ -1,5 +1,5 @@
 { 
-  "comet": {
+    "comet": {
     "name": "Comet",
     "type_": "public server",
     "base_url": "https://magnify.pages.dev/scraper/comet",
