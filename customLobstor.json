@@ -1,0 +1,48 @@
+{
+  "_manifest" : {
+    "name": "Custom Lobstor 1.0",
+    "id": "custom.lob.express",
+    "version": 1.0,
+    "classPath": "",
+    "permaUrl": "https://raw.githubusercontent.com/h53h54h55/Syncler/main/Lobstor.json"
+  },
+    "torrentio": {
+    "name": "TORRENTIO",
+    "enabled": true,
+    "languages": ["en"],
+    "base_url": "https://torrentio.strem.fun",
+    "response_type": "json",
+    "movie": {
+      "query": "/stream/movie/{query}.json",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/stream/series/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "results": "streams",
+      "title": "title",
+      "hash": "infoHash"
+    }
+  },
+ "zilean-dmm": {
+    "name": "DMM",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/dmm",
+    "response_type": "json",
+    "movie": {
+      "query": "/?imdbid={query}",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/?imdbid={query}&season={season}&episode={episode}",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "title": "raw_title",
+      "size": "size",
+      "hash": "info_hash"
+    }
+  }
+}
