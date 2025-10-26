@@ -18,6 +18,29 @@
       "hash": "info_hash"
     }
   },
+  "mediafusion": {
+    "name": "MediaFusion",
+    "type_": "public server",
+    "base_url": "https://magnify.pages.dev/scraper/mediafusion",
+    "response_type": "json",
+    "movie": {
+      "query": "/stream/movie/{query}.json",
+      "keywords": "{imdbId}"
+    },
+    "episode": {
+      "query": "/stream/series/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "anime": {
+      "query": "/stream/series/{query}:{season}:{episode}.json",
+      "keywords": "{showImdbId}"
+    },
+    "json_format": {
+      "results": "streams",
+      "title": "description",
+      "hash": "infoHash"
+    }
+  },
   "animetosho_primary": {
     "name": "AnimeTosho",
     "type_": "public server",
