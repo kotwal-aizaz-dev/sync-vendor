@@ -1,21 +1,21 @@
 {
-  "zilean-dmm": {
-    "name": "DMM",
-    "type_": "public server",
-    "base_url": "https://magnify.pages.dev/scraper/dmm",
-    "response_type": "json",
-    "movie": {
-      "query": "/?imdbid={query}",
-      "keywords": "{imdbId}"
-    },
-    "episode": {
-      "query": "/?imdbid={query}&season={season}&episode={episode}",
-      "keywords": "{showImdbId}"
-    },
-    "json_format": {
-      "title": "raw_title",
-      "size": "size",
-      "hash": "info_hash"
+    "zilean-dmm": {
+        "name": "DMM",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/dmm",
+        "response_type": "json",
+        "movie": {
+            "query": "/?imdbid={query}",
+            "keywords": "{imdbId}"
+        },
+        "episode": {
+            "query": "/?imdbid={query}&season={season}&episode={episode}",
+            "keywords": "{showImdbId}"
+        },
+        "json_format": {
+            "title": "raw_title",
+            "size": "size",
+            "hash": "info_hash"
+        }
     }
-  }
 }
