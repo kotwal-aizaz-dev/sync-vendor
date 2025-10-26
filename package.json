@@ -1,4 +1,5 @@
-{"torrentio": {
+{
+    "torrentio": {
     "name": "Torrentio",
     "type_": "public server",
     "base_url": "https://magnify.pages.dev/scraper/torrentio",
@@ -39,4 +40,5 @@
       "size": "size",
       "hash": "info_hash"
     }
-  }}
+  }
+}
