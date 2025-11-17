@@ -1,4 +1,55 @@
 {
+    "comet": {
+        "name": "Comet",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/comet",
+        "response_type": "json",
+        "movie": {
+            "query": "/stream/movie/{query}.json",
+            "keywords": "{imdbId}"
+        },
+        "episode": {
+            "query": "/stream/series/{query}:{season}:{episode}.json",
+            "keywords": "{showImdbId}"
+        },
+        "anime": {
+            "query": "/stream/anime/{query}:{season}:{episode}.json",
+            "keywords": "{title}"
+        },
+        "json_format": {
+            "results": "streams",
+            "title": "behaviorHints.filename",
+            "size": "behaviorHints.videoSize",
+            "hash": "infoHash",
+            "playbackFileName": "behaviorHints.filename",
+            "playbackFileSize": "behaviorHints.videoSize"
+        }
+    },
+    "torrentio": {
+        "name": "Torrentio",
+        "type_": "public server",
+        "base_url": "https://magnify.pages.dev/scraper/torrentio",
+        "response_type": "json",
+        "movie": {
+            "query": "/qualityfilter=scr,cam|sort=qualitysize/stream/movie/{query}.json",
+            "keywords": "{imdbId}"
+        },
+        "episode": {
+            "query": "/sort=qualitysize/stream/series/{query}:{season}:{episode}.json",
+            "keywords": "{showImdbId}"
+        },
+        "anime": {
+            "query": "/sort=qualitysize/stream/anime/{query}:{season}:{episode}.json",
+            "keywords": "{showImdbId}"
+        },
+        "json_format": {
+            "results": "streams",
+            "title": "title",
+            "hash": "infoHash",
+            "playbackFileName": "behaviorHints.filename",
+            "playbackFileSize": "title"
+        }
+    },
     "zilean-dmm": {
         "name": "DMM",
         "type_": "public server",
@@ -15,7 +66,9 @@
         "json_format": {
             "title": "raw_title",
             "size": "size",
-            "hash": "info_hash"
+            "hash": "info_hash",
+            "playbackFileName": "raw_title",
+            "playbackFileSize": "size"
         }
     }
 }
